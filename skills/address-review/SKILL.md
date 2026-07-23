@@ -2,7 +2,7 @@
 name: address-review
 description: Assess external review reports against reality, implement what you agree with, and emit a stamped re-review block.
 argument-hint: "The review report(s) to address - pasted text or a file path"
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 # Address Review
@@ -61,6 +61,6 @@ Edit the plan or source for every accepted finding. One at a time. Don't commit.
 
 The `## Re-Review` block (Disputed + Uncertain) is the artifact you paste back into the reviewer's window for round N+1 - the `Re-Review` header is the signal that tells `/request-plan-review` or `/request-execution-review` to defend or concede each, not re-review from scratch. **Uncertain** stays in this block: surface those for the human and the reviewer rather than resolving them silently.
 
-Save a copy of the full output to the OS temp dir as `disputes-<slug>-<UTC-timestamp>.md` and print that path on one trailing line.
+Save a copy of the full output to the OS temp dir as `disputes-<slug>-<UTC-timestamp>.md` by actually calling a file-write tool. Print that path on one trailing line only after the tool call succeeds.
 
 Group findings under Critical/Important/Minor only where it adds signal - don't force empty severity headings.

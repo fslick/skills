@@ -2,7 +2,7 @@
 name: request-execution-review
 description: Review code changes or an executed plan as an independent adversary reviewer, and emit a clean report.
 argument-hint: "'code', 'executed plan', or pasted disputes for a re-review"
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 # Request Execution Review
@@ -39,7 +39,7 @@ Flag only what would cause a real problem. Building the wrong thing, getting stu
 
 ## Output: the report only
 
-Your response is **solely the report** - no preamble, no narration. After the report, save a copy to the OS temp dir as `review-<slug>-<UTC-timestamp>.md` (slug from the repo+branch) and print that path on one trailing line, outside the report.
+Your response is **solely the report** - no preamble, no narration. After the report, save a copy to the OS temp dir as `review-<slug>-<UTC-timestamp>.md` (slug from the repo+branch) by actually calling a file-write tool. Print that path on one trailing line, outside the report, only after the tool call succeeds.
 
 Findings are grouped by severity and referenced **by descriptive title - never numbered or ID'd** (the author may merge your report with another model's, and colliding numbers confuse them).
 
