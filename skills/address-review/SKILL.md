@@ -13,6 +13,10 @@ You own this work; an **adversary reviewer** (often a different, stronger model)
 
 You may edit files in the working tree. You may **not** commit, stage, branch, checkout, stash, reset, or run any mutating git operation. Leave the tree dirty for the human.
 
+## Validate the input first
+
+Check every given file path exists and is non-empty before assessing anything. If any is missing or empty, stop and report it to the user - do not proceed, and do not treat it as a clean review.
+
 ## Pick the mode
 
 - **Plan mode** - you're addressing a review of a plan document; accepted findings mean editing the plan `.md`.
